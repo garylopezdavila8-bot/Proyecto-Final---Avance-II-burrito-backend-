@@ -18,16 +18,16 @@ import { DashboardModule } from './dashboard/dashboard.module';
     TypeOrmModule.forRoot({
       type: 'mysql',
      
-      host: process.env.DB_HOST || 'localhost',
+      host: process.env.DB_HOST || 'buszufypboro7alzpndb-mysql.services.clever-cloud.com',
       port: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : 3306,
-      username: process.env.DB_USERNAME || 'root',
-      password: process.env.DB_PASSWORD || 'zahid8',
-      database: process.env.DB_DATABASE || 'burrito_lector_db',
+      username: process.env.DB_USERNAME || 'buszufypboro7alzpndb',
+      password: process.env.DB_PASSWORD || 'gEKWRvfjVEW7kUHhs7on',
+      database: process.env.DB_DATABASE || 'uf2kwbduv5yyxuxt',
       entities: [User, Libro, Resena], 
       synchronize: true, 
       
       // Clever Cloud requiere SSL para conexiones externas seguras
-      ssl: process.env.DB_HOST && process.env.DB_HOST !== 'localhost' ? {
+      ssl: process.env.DB_HOST && process.env.DB_HOST !== 'buszufypboro7alzpndb-mysql.services.clever-cloud.com' ? {
         rejectUnauthorized: false,
       } : false,
     }),
