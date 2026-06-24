@@ -15,7 +15,13 @@ async function bootstrap() {
 
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  app.enableCors();
+  
+  app.enableCors({
+    origin: ['https://proyecto-final-avance-ii-completo-2.onrender.com'//,'http://localhost:4200'
+    ],
+    credentials: true,
+  });
+
   app.useStaticAssets(uploadsPath, { prefix: '/uploads/' });
 
   app.useGlobalPipes(
@@ -38,6 +44,8 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(3000);
+  
+  const port = process.env.PORT || 3000;
+  await app.listen(port);
 }
 bootstrap();
